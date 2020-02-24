@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .container{
+        width: 250px;
+        height: 250px;
+        position: absolute;
+        left: 0;bottom: 0;
+        right: 0;top: 0;
+        margin: auto;
+    }
+    
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2><%=tip%></h2>
+        <p>还有<span id="num">3</span>秒之后跳转，如不想等待可按下方链接</p>
+        <a href="<%=url%>">跳转页面</a>
+    </div>
+    <script>
+    let cur = document.getElementById('num').innerHTML
+    setInterval(()=>{
+        cur--;
+        document.getElementById('num').innerHTML = cur
+        if(cur<=0){
+            location.href = "<%=url%>"
+        }
+    },1000)
+    
+    
+    </script>
+</body>
+</html>

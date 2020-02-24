@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .img {
+            width: 40px;
+            height: 40px;
+        }
+
+        .updata {
+            color: #1E9D3A;
+        }
+
+        .delete {
+            color: #f00;
+        }
+    </style>
+</head>
+
+<body>
+    <!--The content below is only a placeholder and can be replaced.-->
+
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+
+
+    <%-include("./common/top.html",{usr})%>
+    <div class="container-fluid">
+        <div class="row">
+            <%-include("./common/left.html")%>
+            <div class="col-sm-10">
+                <ol class="breadcrumb">
+                    <li class="active">商品管理
+                    </li>
+                    <li class="active">商品列表
+                    </li>
+                </ol>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        搜索
+                    </div>
+                    <div class="panel-body">
+                        <form role="form" class="form-inline" action="/seatchGoods" method="POST">
+                            <div class="form-group">
+                                <label for="name">名称</label>
+                                <input type="text" class="form-control" id="name" name="name" placeholder="请输入名称">
+                            </div>
+
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-default">开始搜索</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!--
+                列表展示
+            -->
+                <div class="table-responsive">
+                    <table class="table table-striped ">
+                        <thead>
+                            <tr>
+                                <th>编号</th>
+                                <th>名称</th>
+                                <th>图标</th>
+                                <th>作者</th>
+                                <th>价格</th>
+                                <th>库存</th>
+                                <th>状态</th>
+                                <th>分类</th>
+                                <th>描述</th>
+                                <th class="text-center">操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% for(let i = 0;i<data.length;i++) { %>
+                            <tr>
+                                <td><%=data[i]._id%></td>
+                                <td>
+                                    <%=data[i].name %>
+                                </td>
+                                <td><img class="img" src="<%=data[i].img%>" alt=""></td>
+                                <td>
+                                    <%=data[i].author %>
+                                </td>
+                                <td>
+                                    <%=data[i].price %>
+                                </td>
+                                <td>
+                                    <%=data[i].count %>
+                                </td>
+                                <% if(data[i].state==1){ %>
+                                    <td>热卖</td>
+                                <% }else if(data[i].state==2){ %>
+                                    <td>促销</td>
+                                <% }else{ %>
+                                    <td>下架</td>
+                                <% } %>
+
+                                <% if(data[i].type==1){ %>
+                                    <td>畅销榜</td>
+                                <% }else if(data[i].type==2){ %>
+                                    <td>新书榜</td>
+                                <% }else if(data[i].type==3){ %>
+                                    <td>童书榜</td>
+                                <% }else if(data[i].type==4){ %>
+                                    <td>今日促销</td>
+                                <% }else if(data[i].type==5){ %>
+                                    <td>特价书市</td>
+                                <% }else if(data[i].type==6){ %>
+                                    <td>服装</td>
+                                <% }else if(data[i].type==7){ %>
+                                    <td>当当超市</td>
+                                <% }else if(data[i].type==8){ %>
+                                    <td>拼团</td>
+                                <% }else if(data[i].type==9){ %>
+                                    <td>领券中心</td>
+                                <% }else{ %>
+                                    <td>云阅读</td>
+                                <% } %>
+                                <td><%=data[i].describe %></td>
+                                <td class="text-center">
+                                    <a class="updata" href="/goodsupdataPage?id=<%=data[i]._id%>">修改</a>
+                                    <a class="delete" href="/goodsdelete?id=<%=data[i]._id%>">删除</a>
+                                </td>
+                            </tr>
+                            <% } %>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

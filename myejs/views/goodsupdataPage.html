@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+
+<body>
+    <!--The content below is only a placeholder and can be replaced.-->
+
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="css/basic.css">
+    <%-include("./common/top.html",{usr})%>
+    <div class="container-fluid">
+        <div class="row">
+            <%-include("./common/left.html")%>
+            <div class="col-sm-10">
+                <ol class="breadcrumb">
+                    <li class="active">商品管理
+                    </li>
+                    <li class="active">商品列表
+                    </li>
+                </ol>
+                <div class="panel panel-default">
+
+                    <div class="panel-heading">
+                        增加商品
+                    </div>
+                    <div class="panel-body">
+                        <div class="table-responsive input-form">
+                            <form action="/dogoodsupdata" method="post" enctype="multipart/form-data">
+                                <ul>
+                                    <li> 商品名称: <input type="text" name="name" value="<%=data[0].name %>" /></li>
+                                    <li> 商品类别: <select name="type">
+                                        <option value="1" <%if(data[0].type=='1'){%>selected<%}%> >畅销书</option>
+                                        <option value="2" <%if(data[0].type=='2'){%>selected<%}%> >电子书</option>
+                                        <option value="3" <%if(data[0].type=='3'){%>selected<%}%> >连载书</option>
+                                        <option value="4" <%if(data[0].type=='4'){%>selected<%}%> >完结书</option>
+                                        <option value="5" <%if(data[0].type=='5'){%>selected<%}%> >纪实书</option>
+                                    </select></li>
+                                    <li> 选择要修改的图片: <input type="file" name="img" /></li>
+                                    <li> 图片缩略图: <img src="<%=data[0].img %>" alt=""></li>
+                                    <li> 商品价格: <input type="text" name="price" value="<%=data[0].price %>" /></li>
+                                    <li> 商品库存: <input type="text" name="count" value="<%=data[0].count %>" /></li>
+                                    <li> 商品作者: <input type="text" name="author" value="<%=data[0].author %>" /></li>
+                                    <li> 商品状态: <select name="state">
+                                        <option value="1" <%if(data[0].state=='1'){%>selected<%}%> >热卖</option>
+                                        <option value="2" <%if(data[0].state=='2'){%>selected<%}%> >促销</option>
+                                        <option value="3" <%if(data[0].state=='3'){%>selected<%}%> >下架</option>
+                                    </select></li>
+                                    <li> 商品描述: <input type="text" name="describe" value="<%=data[0].describe %>" /></li>
+                                    <li> <input type="hidden" name="_id" value="<%=data[0]._id %>" />
+                                        <input type="hidden" name="oldimg" value="<%=data[0].img %>"/>
+                                    </li>
+
+                                    <li>
+                                        <button type="submit" class="btn btn-default">提交</button>
+                                        <button type="button" class="btn btn-default" onclick="location.href='/'">返回</button>
+                                    </li>
+                                </ul>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+{
+  "tabBar": {
+    "color": "#333",
+    "selectedColor": "#ff4433",
+    "backgroundColor": "#fff",
+    "position": "top",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "",
+        "text": "商品"
+      },
+      {
+        "pagePath": "",
+        "text": "详情"
+      },
+      {
+        "pagePath": "",
+        "text": "评论"
+      },
+      {
+        "pagePath": "",
+        "text": "相关"
+      }
+    ]
+  }
+}

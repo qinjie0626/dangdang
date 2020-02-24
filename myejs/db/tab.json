@@ -1,0 +1,35 @@
+{
+    "banner": {
+        "img": "String"
+    },
+    "booklist": {
+        "name": "String",
+        "img": "String"
+    },
+    "carlist": {
+        "name": "String",
+        "img": "String",
+        "price": "Number",
+        "value":"Number"
+    },
+    "goodslist": {
+        "name": "String",
+        "type":"String",
+        "img": "String",
+        "price": "Number",
+        "count":"Number",
+        "state":"String",
+        "describe":"String",
+        "author":"String"
+    },
+    "user": {
+        "name": "String",
+        "password": "String"
+    },
+    "adminuser":{
+        "uname":"String",
+        "pwd":"String",
+        "bgimg":"String",
+        "img":"String"
+    }
+}

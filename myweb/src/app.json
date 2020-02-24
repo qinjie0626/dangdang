@@ -1,0 +1,36 @@
+{
+  "pages": [
+    "pages/index/main",
+    "pages/car/main","pages/center/main", "pages/detail/main","pages/list/main" ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "当当网",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#8A8A8A",
+    "backgroundColor": "#fafafa",
+    "selectedColor": "#D81F07",
+    "borderStyle": "white",
+
+    "list": [{
+      "text": "首页",
+      "pagePath": "pages/index/main",
+      "iconPath": "static/icon/shouye1.png",
+      "selectedIconPath": "static/icon/shouye.png"
+    }, {
+      "text": "购物车",
+      "pagePath": "pages/car/main",
+      "iconPath": "static/icon/ziyuan1.png",
+      "selectedIconPath": "static/icon/ziyuan.png"
+    },
+    {
+      "text": "我的当当",
+      "pagePath": "pages/center/main",
+      "iconPath": "static/icon/icon1.png",
+      "selectedIconPath": "static/icon/icon.png"
+    }],
+    "position": "bottom"
+  }
+}
